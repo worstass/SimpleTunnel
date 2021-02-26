@@ -98,7 +98,7 @@ open class ClientTunnel: Tunnel {
 				return
 			}
 
-			let lengthData = data
+			let lengthData = data!
 
 			guard lengthData.count == MemoryLayout<UInt32>.size else {
 				simpleTunnelLog("Length data length (\(lengthData.count)) != sizeof(UInt32) (\(MemoryLayout<UInt32>.size)")
@@ -125,7 +125,7 @@ open class ClientTunnel: Tunnel {
 					return
 				}
 
-				let payloadData = data
+				let payloadData = data!
 
 				guard payloadData.count == Int(totalLength) else {
 					simpleTunnelLog("Payload data length (\(payloadData.count)) != payload length (\(totalLength)")
